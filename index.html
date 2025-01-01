@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AR Venture - Premium Savings & Rewards</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .carousel-container {
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+        .prize-card {
+            width: 16rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .prize-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+        .prize-card img {
+            width: 100%;
+            height: 8rem;
+            object-fit: contain;
+            background-color: #f3f4f6;
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        nav a.active {
+            color: #3b82f6;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-xl md:text-2xl font-bold text-blue-600">AR VENTURE</div>
+                <button class="md:hidden flex items-center" id="mobile-menu-button">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#prizes" class="text-gray-700 hover:text-blue-600 transition">Prizes</a>
+                    <a href="#monthly" class="text-gray-700 hover:text-blue-600 transition">Monthly Rewards</a>
+                    <a href="#consolation" class="text-gray-700 hover:text-blue-600 transition">Consolation</a>
+                    <a href="#T&C" class="text-gray-700 hover:text-blue-600 transition">T&C</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
+                </div>
+            </div>
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="flex flex-col space-y-4 mt-4">
+                    <a href="#prizes" class="text-gray-700 hover:text-blue-600 transition">Prizes</a>
+                    <a href="#monthly" class="text-gray-700 hover:text-blue-600 transition">Monthly Rewards</a>
+                    <a href="#consolation" class="text-gray-700 hover:text-blue-600 transition">Consolation</a>
+                    <a href="#T&C" class="text-gray-700 hover:text-blue-600 transition">T&C</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-white space-y-6">
+                    <h1 class="text-5xl font-bold leading-tight">Transform Your Dreams Into Reality</h1>
+                    <p class="text-xl text-blue-100">Join Kerala's Premier Savings Program</p>
+                    <div class="glass-effect rounded-xl p-6 space-y-3 inline-block">
+                        <div class="text-2xl font-bold">Best Saving Plan</div>
+                        <div class="text-4xl font-bold text-yellow-400">₹1000 × 14 Months</div>
+                        <div class="text-sm text-blue-100">Over 300 winners every month</div>
+                    </div>
+                </div>
+                <div class="floating">
+                    <img src="/hero.png" alt="Luxury Cars">
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Grand Prizes Section -->
+<section class="py-24 bg-gray-50" id="prizes">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4">Grand Prizes</h2>
+            <p class="text-gray-600 text-lg">Incredible rewards worth crores waiting to be won</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <!-- Vehicles Prize Card -->
+            <div class="bg-white rounded-xl overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Premium Vehicles</h3>
+                            <p class="text-white/80 text-sm">Drive home your dream vehicle</p>
+                        </div>
+                        <div class="bg-white/20 p-3 rounded-lg backdrop-blur-sm">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl font-bold text-blue-600">5</span>
+                            <span class="text-gray-600 text-sm leading-tight">
+                                Luxury Cars Including Swift, WagonR & More
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl font-bold text-blue-600">8</span>
+                            <span class="text-gray-600 text-sm leading-tight">
+                                Premium Two-Wheelers Including Pulsar & Activa
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gold & Cash Prize Card -->
+            <div class="bg-white rounded-xl overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                <div class="bg-gradient-to-br from-yellow-500 to-yellow-600 text-white p-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Gold & Cash Prizes</h3>
+                            <p class="text-white/80 text-sm">Take home valuable rewards</p>
+                        </div>
+                        <div class="bg-white/20 p-3 rounded-lg backdrop-blur-sm">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl font-bold text-yellow-600">15L</span>
+                            <span class="text-gray-600 text-sm leading-tight">
+                                Worth of Gold Prizes for Lucky Winners
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl font-bold text-yellow-600">10L</span>
+                            <span class="text-gray-600 text-sm leading-tight">
+                                Cash Prizes Distributed Monthly
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Winners Prize Card -->
+            <div class="bg-white rounded-xl overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                <div class="bg-gradient-to-br from-green-500 to-green-600 text-white p-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Total Winners</h3>
+                            <p class="text-white/80 text-sm">More chances to win big</p>
+                        </div>
+                        <div class="bg-white/20 p-3 rounded-lg backdrop-blur-sm">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl font-bold text-green-600">210</span>
+                            <span class="text-gray-600 text-sm leading-tight">
+                                Lucky Gold Winners Throughout Event
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl font-bold text-green-600">300+</span>
+                            <span class="text-gray-600 text-sm leading-tight">
+                                Monthly Prize Winners
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-12">
+            <svg class="w-6 h-6 mx-auto mb-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+            </svg>
+            <p class="text-gray-500 text-sm">New winners announced every month</p>
+        </div>
+    </div>
+</section>
+
+<!-- Monthly Prizes -->
+<section class="py-20" id="monthly">
+    <div class="container mx-auto px-6">
+        <div class="flex justify-between items-center mb-12">
+            <h2 class="text-4xl font-bold">Monthly Bumper Prizes</h2>
+            <div class="flex gap-4">
+                <button id="prevBtn" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <button id="nextBtn" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="relative">
+            <div class="carousel-container flex gap-4 overflow-x-auto py-4">
+                <!-- Month 1 -->
+                <div class="prize-card flex-shrink-0 w-64 bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="/montly/1.png" alt="Tata Punch" class="w-full h-32 object-contain bg-gray-100">
+                    <div class="p-4">
+                        <div class="text-sm text-blue-600 font-semibold">Month 1</div>
+                        <h3 class="text-lg font-bold mt-2">Tata Punch Car</h3>
+                        <div class="mt-2 space-y-1">
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">₹50,000 Cash Prize (4 Winners)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">15 Gold Rings</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Month 2 -->
+                <div class="prize-card flex-shrink-0 w-64 bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="/montly/2.png" alt="Bajaj Pulsar" class="w-full h-32 object-contain bg-gray-100">
+                    <div class="p-4">
+                        <div class="text-sm text-blue-600 font-semibold">Month 2</div>
+                        <h3 class="text-lg font-bold mt-2">Bajaj Pulsar Bike</h3>
+                        <div class="mt-2 space-y-1">
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">₹25,000 Worth Gold (6 Winners)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">15 Gold Rings</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Month 3 -->
+                <div class="prize-card flex-shrink-0 w-64 bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="/montly/3.png" alt="Honda Activa" class="w-full h-32 object-contain bg-gray-100">
+                    <div class="p-4">
+                        <div class="text-sm text-blue-600 font-semibold">Month 3</div>
+                        <h3 class="text-lg font-bold mt-2">Honda Activa Scooter</h3>
+                        <div class="mt-2 space-y-1">
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">₹25,000 Worth Gold (6 Winners)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">15 Gold Rings</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Month 4 -->
+                <div class="prize-card flex-shrink-0 w-64 bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="/montly/04.png" alt="TATA Tiago" class="w-full h-32 object-contain bg-gray-100">
+                    <div class="p-4">
+                        <div class="text-sm text-blue-600 font-semibold">Month 4</div>
+                        <h3 class="text-lg font-bold mt-2">Tata Tiago Car</h3>
+                        <div class="mt-2 space-y-1">
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">₹25,000 Worth Gold (6 Winners)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">15 Gold Rings</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Month 5 -->
+                <div class="prize-card flex-shrink-0 w-64 bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="/montly/5.png" alt="Bajaj Pulsar" class="w-full h-32 object-contain bg-gray-100">
+                    <div class="p-4">
+                        <div class="text-sm text-blue-600 font-semibold">Month 5</div>
+                        <h3 class="text-lg font-bold mt-2">Bajaj Pulsar Bike</h3>
+                        <div class="mt-2 space-y-1">
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">₹30,000 Worth Gold (7 Winners)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">15 Gold Rings</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Month 6 -->
+                <div class="prize-card flex-shrink-0 w-64 bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="/montly/3.png" alt="Honda Activa" class="w-full h-32 object-contain bg-gray-100">
+                    <div class="p-4">
+                        <div class="text-sm text-blue-600 font-semibold">Month 6</div>
+                        <h3 class="text-lg font-bold mt-2">Honda Activa Scooter</h3>
+                        <div class="mt-2 space-y-1">
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">₹30,000 Worth Gold (6 Winners)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">15 Gold Rings</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Month 7 -->
+                <div class="prize-card flex-shrink-0 w-64 bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="/montly/7.png" alt="Suzuki Wagon R" class="w-full h-32 object-contain bg-gray-100">
+                    <div class="p-4">
+                        <div class="text-sm text-blue-600 font-semibold">Month 7</div>
+                        <h3 class="text-lg font-bold mt-2">Suzuki Wagon R Car</h3>
+                        <div class="mt-2 space-y-1">
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">₹30,000 Worth Gold (6 Winners)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">15 Gold Rings</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Month 8 -->
+                <div class="prize-card flex-shrink-0 w-64 bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="/montly/8.png" alt="Bajaj Pulsar" class="w-full h-32 object-contain bg-gray-100">
+                    <div class="p-4">
+                        <div class="text-sm text-blue-600 font-semibold">Month 8</div>
+                        <h3 class="text-lg font-bold mt-2">Bajaj Pulsar Bike</h3>
+                        <div class="mt-2 space-y-1">
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">₹30,000 Worth Gold (6 Winners)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">15 Gold Rings</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Month 9 -->
+                <div class="prize-card flex-shrink-0 w-64 bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="/montly/9.png" alt="Honda Activa" class="w-full h-32 object-contain bg-gray-100">
+                    <div class="p-4">
+                        <div class="text-sm text-blue-600 font-semibold">Month 9</div>
+                        <h3 class="text-lg font-bold mt-2">Honda Activa Scooter</h3>
+                        <div class="mt-2 space-y-1">
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">₹30,000 Worth Gold (6 Winners)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">15 Gold Rings</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Month 10 -->
+                <div class="prize-card flex-shrink-0 w-64 bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="/montly/10.png" alt="Suzuki Celerio" class="w-full h-32 object-contain bg-gray-100">
+                    <div class="p-4">
+                        <div class="text-sm text-blue-600 font-semibold">Month 10</div>
+                        <h3 class="text-lg font-bold mt-2">Suzuki Celerio Car</h3>
+                        <div class="mt-2 space-y-1">
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">₹35,000 Worth Gold (4 Winners)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">15 Gold Rings</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Month 11 -->
+                <div class="prize-card flex-shrink-0 w-64 bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="/montly/11.png" alt="1 Lakh Worth Gold" class="w-full h-32 object-contain bg-gray-100">
+                    <div class="p-4">
+                        <div class="text-sm text-blue-600 font-semibold">Month 11</div>
+                        <h3 class="text-lg font-bold mt-2">1 Lakh Worth Gold</h3>
+                        <div class="mt-2 space-y-1">
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">₹50,000 Cash Prize (3 Winners)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">15 Gold Rings</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Month 12 -->
+                <div class="prize-card flex-shrink-0 w-64 bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="/montly/12.png" alt="Bajaj Pulsar" class="w-full h-32 object-contain bg-gray-100">
+                    <div class="p-4">
+                        <div class="text-sm text-blue-600 font-semibold">Month 12</div>
+                        <h3 class="text-lg font-bold mt-2">Bajaj Pulsar Bike</h3>
+                        <div class="mt-2 space-y-1">
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">₹50,000 Cash Prize (2 Winners)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">15 Gold Rings</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Month 13 -->
+                <div class="prize-card flex-shrink-0 w-64 bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="/montly/13.png" alt="Honda Activa" class="w-full h-32 object-contain bg-gray-100">
+                    <div class="p-4">
+                        <div class="text-sm text-blue-600 font-semibold">Month 13</div>
+                        <h3 class="text-lg font-bold mt-2">Honda Activa Scooter</h3>
+                        <div class="mt-2 space-y-1">
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">₹50,000 Cash Prize (4 Winners)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">15 Gold Rings</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Month 14 -->
+                <div class="prize-card flex-shrink-0 w-64 bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="/montly/14.png" alt="Suzuki Swift" class="w-full h-32 object-contain bg-gray-100">
+                    <div class="p-4">
+                        <div class="text-sm text-blue-600 font-semibold">Month 14</div>
+                        <h3 class="text-lg font-bold mt-2">Suzuki Swift Car</h3>
+                        <div class="mt-2 space-y-1">
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">₹50,000 Worth Gold</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-yellow-500">●</span>
+                                <span class="ml-2 text-sm">15 Gold Rings</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-8 flex justify-center gap-2">
+            <div id="progress" class="w-full max-w-md h-1 bg-gray-200 rounded-full overflow-hidden">
+                <div class="progress-bar w-1/14 h-full bg-blue-600 transition-all duration-300"></div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <span id="currentMonth" class="font-semibold">Month 1</span>
+            <span class="text-gray-500"> of 14</span>
+        </div>
+    </div>
+</section>
+
+   <!-- Consolation Prizes -->
+<section class="py-20 bg-gray-50" id="consolation">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-3">Consolation Prizes</h2>
+        <p class="text-gray-600 text-center mb-6 max-w-2xl mx-auto text-sm">Every participant has a chance to win these amazing household items.</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <!-- 1. Mixer Grinder -->
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden group">
+                <div class="w-full h-32 flex items-center justify-center bg-gray-50">
+                    <img src="/consolation/1new.png" alt="Mixer Grinder" class="w-4/5 h-4/5 object-contain transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-3 text-center">
+                    <h3 class="font-medium text-sm text-gray-800 group-hover:text-blue-600 transition-colors duration-300 mb-2 line-clamp-1">Sujatha Mixer Grinder</h3>
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="text-xs text-gray-500">Kitchen</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Smart TV -->
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden group">
+                <div class="w-full h-32 flex items-center justify-center bg-gray-50">
+                    <img src="/consolation/2.png" alt="Smart TV" class="w-4/5 h-4/5 object-contain transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-3 text-center">
+                    <h3 class="font-medium text-sm text-gray-800 group-hover:text-blue-600 transition-colors duration-300 mb-2 line-clamp-1">32" Android Smart TV</h3>
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="text-xs text-gray-500">Entertainment</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Washing Machine -->
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden group">
+                <div class="w-full h-32 flex items-center justify-center bg-gray-50">
+                    <img src="/consolation/3new.png" alt="Washing Machine" class="w-4/5 h-4/5 object-contain transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-3 text-center">
+                    <h3 class="font-medium text-sm text-gray-800 group-hover:text-blue-600 transition-colors duration-300 mb-2 line-clamp-1">Washing Machine</h3>
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="text-xs text-gray-500">Home Appliance</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Premium Cycle -->
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden group">
+                <div class="w-full h-32 flex items-center justify-center bg-gray-50">
+                    <img src="/consolation/4.png" alt="Premium Cycle" class="w-4/5 h-4/5 object-contain transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-3 text-center">
+                    <h3 class="font-medium text-sm text-gray-800 group-hover:text-blue-600 transition-colors duration-300 mb-2 line-clamp-1">Premium Cycle</h3>
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="text-xs text-gray-500">Fitness</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Grinder & Hot Box -->
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden group">
+                <div class="w-full h-32 flex items-center justify-center bg-gray-50">
+                    <img src="/consolation/5.png" alt="Table Top Grinder" class="w-4/5 h-4/5 object-contain transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-3 text-center">
+                    <h3 class="font-medium text-sm text-gray-800 group-hover:text-blue-600 transition-colors duration-300 mb-2 line-clamp-1">Table Top Grinder & Hot Box</h3>
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="text-xs text-gray-500">Kitchen</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Home Theatre -->
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden group">
+                <div class="w-full h-32 flex items-center justify-center bg-gray-50">
+                    <img src="/consolation/6.png" alt="Home Theatre" class="w-4/5 h-4/5 object-contain transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-3 text-center">
+                    <h3 class="font-medium text-sm text-gray-800 group-hover:text-blue-600 transition-colors duration-300 mb-2 line-clamp-1">Home Theatre & Bluetooth Speaker</h3>
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="text-xs text-gray-500">Entertainment</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Gas Stove -->
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden group">
+                <div class="w-full h-32 flex items-center justify-center bg-gray-50">
+                    <img src="/consolation/7new.png" alt="Gas Stove" class="w-4/5 h-4/5 object-contain transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-3 text-center">
+                    <h3 class="font-medium text-sm text-gray-800 group-hover:text-blue-600 transition-colors duration-300 mb-2 line-clamp-1">Glass Gas Stove & 3 Jar Mixer</h3>
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="text-xs text-gray-500">Kitchen</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Cooler & Rice Cooker -->
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden group">
+                <div class="w-full h-32 flex items-center justify-center bg-gray-50">
+                    <img src="/consolation/8.png" alt="Cooler" class="w-4/5 h-4/5 object-contain transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-3 text-center">
+                    <h3 class="font-medium text-sm text-gray-800 group-hover:text-blue-600 transition-colors duration-300 mb-2 line-clamp-1">Cooler & Rice Cooker</h3>
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="text-xs text-gray-500">Home Appliance</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. Water Heater -->
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden group">
+                <div class="w-full h-32 flex items-center justify-center bg-gray-50">
+                    <img src="/consolation/9.png" alt="Water Heater" class="w-4/5 h-4/5 object-contain transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-3 text-center">
+                    <h3 class="font-medium text-sm text-gray-800 group-hover:text-blue-600 transition-colors duration-300 mb-2 line-clamp-1">Water Heater & Ceiling Fan</h3>
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="text-xs text-gray-500">Home Comfort</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. Kitchen Oven -->
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden group">
+                <div class="w-full h-32 flex items-center justify-center bg-gray-50">
+                    <img src="/consolation/10.png" alt="Kitchen Oven" class="w-4/5 h-4/5 object-contain transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-3 text-center">
+                    <h3 class="font-medium text-sm text-gray-800 group-hover:text-blue-600 transition-colors duration-300 mb-2 line-clamp-1">Kitchen Oven & Cooker 10Ltr</h3>
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="text-xs text-gray-500">Kitchen</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11. Vacuum Cleaner -->
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden group">
+                <div class="w-full h-32 flex items-center justify-center bg-gray-50">
+                    <img src="/consolation/11.png" alt="Vacuum Cleaner" class="w-4/5 h-4/5 object-contain transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-3 text-center">
+                    <h3 class="font-medium text-sm text-gray-800 group-hover:text-blue-600 transition-colors duration-300 mb-2 line-clamp-1">Vacuum Cleaner</h3>
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="text-xs text-gray-500">Home Care</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12. Sitout Bench -->
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden group">
+                <div class="w-full h-32 flex items-center justify-center bg-gray-50">
+                    <img src="/consolation/12.png" alt="Sitout Bench" class="w-4/5 h-4/5 object-contain transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-3 text-center">
+                    <h3 class="font-medium text-sm text-gray-800 group-hover:text-blue-600 transition-colors duration-300 mb-2 line-clamp-1">Sitout Bench & Tea Poy</h3>
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="text-xs text-gray-500">Furniture</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 13. Coat -->
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden group">
+                <div class="w-full h-32 flex items-center justify-center bg-gray-50">
+                    <img src="/consolation/13.png" alt="Coat" class="w-4/5 h-4/5 object-contain transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-3 text-center">
+                    <h3 class="font-medium text-sm text-gray-800 group-hover:text-blue-600 transition-colors duration-300 mb-2 line-clamp-1">Coat 5x6</h3>
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="text-xs text-gray-500">Furniture</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 14. Kaboard -->
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden group">
+                <div class="w-full h-32 flex items-center justify-center bg-gray-50">
+                    <img src="/consolation/14new.png" alt="Kaboard" class="w-4/5 h-4/5 object-contain transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-3 text-center">
+                    <h3 class="font-medium text-sm text-gray-800 group-hover:text-blue-600 transition-colors duration-300 mb-2 line-clamp-1">2 Door Kaboard & Dressing Table</h3>
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="text-xs text-gray-500">Furniture</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 15. Sofa -->
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden group">
+                <div class="w-full h-32 flex items-center justify-center bg-gray-50">
+                    <img src="/consolation/15a.png" alt="Sofa" class="w-4/5 h-4/5 object-contain transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-3 text-center">
+                    <h3 class="font-medium text-sm text-gray-800 group-hover:text-blue-600 transition-colors duration-300 mb-2 line-clamp-1">3 Seater Sofa & Tea Poy</h3>
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="text-xs text-gray-500">Furniture</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 16. Stitching Machine -->
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden group">
+                <div class="w-full h-32 flex items-center justify-center bg-gray-50">
+                    <img src="/consolation/16.png" alt="Stitching Machine" class="w-4/5 h-4/5 object-contain transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-3 text-center">
+                    <h3 class="font-medium text-sm text-gray-800 group-hover:text-blue-600 transition-colors duration-300 mb-2 line-clamp-1">Stitching Machine and Cabinet</h3>
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="text-xs text-gray-500">Home Business</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Premium</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Terms & Conditions -->
+<section id="T&C" class="py-20 bg-gradient-to-b from-gray-50 to-gray-100">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h3 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Terms & Conditions</h3>
+            <p class="text-gray-600 text-lg">Please read our terms carefully</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 max-w-4xl mx-auto backdrop-blur-sm border border-gray-100">
+            <ul class="space-y-6">
+                <!-- Term 1 -->
+                <li class="flex items-start transform transition-transform duration-300 hover:translate-x-2">
+                    <span class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-blue-600 text-lg">•</span>
+                    </span>
+                    <div class="flex-1">
+                        <p class="text-gray-800 text-lg font-medium">First installment starts from 15-01-2025</p>
+                    </div>
+                </li>
+
+                <!-- Term 2 -->
+                <li class="flex items-start transform transition-transform duration-300 hover:translate-x-2">
+                    <span class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-blue-600 text-lg">•</span>
+                    </span>
+                    <div class="flex-1">
+                        <p class="text-gray-800 text-lg font-medium">Each member shall pay monthly installments of Rs.1000 in 14 installments</p>
+                    </div>
+                </li>
+
+                <!-- Term 3 -->
+                <li class="flex items-start transform transition-transform duration-300 hover:translate-x-2">
+                    <span class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-blue-600 text-lg">•</span>
+                    </span>
+                    <div class="flex-1">
+                        <p class="text-gray-800 text-lg font-medium">Members present at our office on 15th of every month at 7 PM</p>
+                    </div>
+                </li>
+
+                <!-- Term 4 -->
+                <li class="flex items-start transform transition-transform duration-300 hover:translate-x-2">
+                    <span class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-blue-600 text-lg">•</span>
+                    </span>
+                    <div class="flex-1">
+                        <p class="text-gray-800 text-lg font-medium">Draw will be held in presence, results live on WhatsApp and YouTube</p>
+                    </div>
+                </li>
+
+                <!-- Term 5 -->
+                <li class="flex items-start transform transition-transform duration-300 hover:translate-x-2">
+                    <span class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-blue-600 text-lg">•</span>
+                    </span>
+                    <div class="flex-1">
+                        <p class="text-gray-800 text-lg font-medium">15 lucky winners who pay monthly installment by 7th eligible for a surprise prize</p>
+                    </div>
+                </li>
+
+                <!-- Term 6 -->
+                <li class="flex items-start transform transition-transform duration-300 hover:translate-x-2">
+                    <span class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-blue-600 text-lg">•</span>
+                    </span>
+                    <div class="flex-1">
+                        <p class="text-gray-800 text-lg font-medium">Winners do not need to pay the next installment</p>
+                    </div>
+                </li>
+
+                <!-- Term 7 -->
+                <li class="flex items-start transform transition-transform duration-300 hover:translate-x-2">
+                    <span class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-blue-600 text-lg">•</span>
+                    </span>
+                    <div class="flex-1">
+                        <p class="text-gray-800 text-lg font-medium">EMI option available for those not opting for incentive gifts</p>
+                    </div>
+                </li>
+
+                <!-- Term 8 -->
+                <li class="flex items-start transform transition-transform duration-300 hover:translate-x-2">
+                    <span class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-blue-600 text-lg">•</span>
+                    </span>
+                    <div class="flex-1">
+                        <p class="text-gray-800 text-lg font-medium">Selected prize will be awarded within 60 days of the draw result</p>
+                    </div>
+                </li>
+
+                <!-- Term 9 -->
+                <li class="flex items-start transform transition-transform duration-300 hover:translate-x-2">
+                    <span class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-blue-600 text-lg">•</span>
+                    </span>
+                    <div class="flex-1">
+                        <p class="text-gray-800 text-lg font-medium">Incentive Prize is not transferable</p>
+                    </div>
+                </li>
+
+                <!-- Term 10 -->
+                <li class="flex items-start transform transition-transform duration-300 hover:translate-x-2">
+                    <span class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-blue-600 text-lg">•</span>
+                    </span>
+                    <div class="flex-1">
+                        <p class="text-gray-800 text-lg font-medium">Bumper Prize cannot be substituted for cash</p>
+                    </div>
+                </li>
+
+                <!-- Term 11 -->
+                <li class="flex items-start transform transition-transform duration-300 hover:translate-x-2">
+                    <span class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-blue-600 text-lg">•</span>
+                    </span>
+                    <div class="flex-1">
+                        <p class="text-gray-800 text-lg font-medium">Non-paying members' tokens excluded from the draw</p>
+                    </div>
+                </li>
+
+                <!-- Term 12 -->
+                <li class="flex items-start transform transition-transform duration-300 hover:translate-x-2">
+                    <span class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-blue-600 text-lg">•</span>
+                    </span>
+                    <div class="flex-1">
+                        <p class="text-gray-800 text-lg font-medium">Installment amount is not a deposit; transport charges apply outside Kasargod for furniture</p>
+                    </div>
+                </li>
+
+                <!-- Term 13 -->
+                <li class="flex items-start transform transition-transform duration-300 hover:translate-x-2">
+                    <span class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-blue-600 text-lg">•</span>
+                    </span>
+                    <div class="flex-1">
+                        <p class="text-gray-800 text-lg font-medium">Payments only through authorized UPI/scanners; non-refundable</p>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- Important Notice Box -->
+            <div class="mt-12 bg-blue-50 rounded-xl p-6 border-l-4 border-blue-600">
+                <div class="flex items-center mb-4">
+                    <svg class="w-6 h-6 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold text-blue-800">Important Notice</h3>
+                </div>
+                <div class="space-y-3">
+                    <p class="text-blue-900 font-medium">• Prize registration amount and all government taxes are to be borne by the winners.</p>
+                    <p class="text-blue-900 font-medium">• Organizers' decision is final and binding.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact -->
+
+    <section id="contact" class="py-24 bg-gradient-to-b from-gray-900 to-gray-800 text-white relative overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-64 h-64 bg-blue-500 rounded-full filter blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 right-0 w-64 h-64 bg-purple-500 rounded-full filter blur-3xl translate-x-1/2 translate-y-1/2"></div>
+        </div>
+    
+        <div class="container mx-auto px-6 relative">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4">Visit Our Showroom</h2>
+                    <p class="text-blue-400">Experience our collection in person</p>
+                </div>
+    
+                <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white/10">
+                    <!-- Location Info -->
+                    <div class="flex flex-col items-center mb-8 space-y-2">
+                        <div class="bg-blue-500/20 p-3 rounded-full mb-4">
+                            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <p class="text-lg font-medium">Shop no: 1207, Meepiri Center</p>
+                        <p class="text-gray-300">Second Floor, Kumbala, P.O Kumbala</p>
+                        <p class="text-gray-300">Kasaragod, Kerala, India</p>
+                    </div>
+    
+                    <!-- Contact Numbers -->
+                    <div class="bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl p-6 mb-8">
+                        <div class="text-center">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-400">Contact Us</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <a href="tel:9061513413" class="flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-300 group">
+                                    <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                    </svg>
+                                    <span class="group-hover:text-blue-400 transition-colors">9061513413</span>
+                                </a>
+                                <a href="tel:9539732282" class="flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-300 group">
+                                    <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                    </svg>
+                                    <span class="group-hover:text-blue-400 transition-colors">9539732282</span>
+                                </a>
+                                <a href="tel:8848569094" class="flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-300 group">
+                                    <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                    </svg>
+                                    <span class="group-hover:text-blue-400 transition-colors">8848569094</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Business Hours -->
+                    <div class="text-center">
+                        <p class="text-sm text-gray-400">Business Hours: 9:30 AM - 7:00 PM</p>
+                        <p class="text-sm text-gray-400">Open all days</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const carousel = document.querySelector('.carousel-container');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.querySelector('.progress-bar');
+        const currentMonthSpan = document.getElementById('currentMonth');
+        const cardWidth = 256; // w-64 = 256px
+        const gapWidth = 16; // gap-4 = 16px
+        const scrollAmount = cardWidth + gapWidth;
+        let currentPosition = 0;
+        const totalCards = 14;
+
+        const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('nav a');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 100) {
+            current = section.getAttribute('id');
+        }
+    });
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+            link.classList.add('active');
+        }
+    });
+});
+
+        function scrollToCard(position) {
+            carousel.scrollTo({
+                left: position * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        function updateProgress() {
+            const progress = (currentPosition / (totalCards - 1)) * 100;
+            progressBar.style.width = `${progress}%`;
+            const currentMonth = Math.min(Math.floor(currentPosition) + 1, totalCards);
+            currentMonthSpan.textContent = `Month ${currentMonth}`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentPosition < totalCards - 1) {
+                currentPosition++;
+                scrollToCard(currentPosition);
+                updateProgress();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentPosition > 0) {
+                currentPosition--;
+                scrollToCard(currentPosition);
+                updateProgress();
+            }
+        });
+
+        let isScrolling;
+        carousel.addEventListener('scroll', () => {
+            clearTimeout(isScrolling);
+            isScrolling = setTimeout(() => {
+                currentPosition = Math.round(carousel.scrollLeft / scrollAmount);
+                scrollToCard(currentPosition);
+                updateProgress();
+            }, 150);
+        });
+
+        let startX;
+        carousel.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        carousel.addEventListener('touchend', (e) => {
+            const endX = e.changedTouches[0].clientX;
+            if (startX - endX > 50) {
+                nextBtn.click();
+            } else if (endX - startX > 50) {
+                prevBtn.click();
+            }
+        });
+
+        let autoPlayInterval;
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                if (currentPosition < totalCards - 1) {
+                    currentPosition++;
+                } else {
+                    currentPosition = 0;
+                }
+                scrollToCard(currentPosition);
+                updateProgress();
+            }, 3000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        carousel.addEventListener('mouseenter', stopAutoPlay);
+        carousel.addEventListener('mouseleave', startAutoPlay);
+        startAutoPlay();
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.prize-card').forEach((el) => {
+            el.classList.add('opacity-0', 'translate-y-10', 'transition', 'duration-1000');
+            observer.observe(el);
+        });
+
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when a link is clicked
+    const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+
+    </script>
+</body>
+</html>
