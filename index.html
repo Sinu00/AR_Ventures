@@ -50,6 +50,66 @@
             color: #3b82f6;
             font-weight: bold;
         }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 1024px;
+            height: 90vh;
+            margin: auto;
+            background: #fff;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            border-radius: 50%;
+            padding: 0.5rem;
+            cursor: pointer;
+            z-index: 1001;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.2s;
+        }
+        .modal-close:hover {
+            background-color: #f3f4f6;
+        }
+        .pdf-viewer {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -57,7 +117,7 @@
     <nav class="fixed w-full z-50 bg-white backdrop-blur-md shadow-sm">
         <div class="container mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
-                <div class="text-xl md:text-2xl font-bold text-blue-600">AR VENTURE</div>
+                <img src="/logo-removebg-preview.png" alt="" class="h-10 w-25">
                 <button class="md:hidden flex items-center" id="mobile-menu-button">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -69,6 +129,7 @@
                     <a href="#consolation" class="text-gray-700 hover:text-blue-600 transition">Consolation</a>
                     <a href="#T&C" class="text-gray-700 hover:text-blue-600 transition">T&C</a>
                     <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
+                    <a class="text-gray-700 hover:text-blue-600 transition cursor-pointer viewPdfButton">View Company Profile</a>
                 </div>
             </div>
             <div class="md:hidden hidden" id="mobile-menu">
@@ -78,6 +139,7 @@
                     <a href="#consolation" class="text-gray-700 hover:text-blue-600 transition">Consolation</a>
                     <a href="#T&C" class="text-gray-700 hover:text-blue-600 transition">T&C</a>
                     <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
+                    <a class="text-gray-700 hover:text-blue-600 transition cursor-pointer viewPdfButton">View Company Profile</a>
                 </div>
             </div>
         </div>
@@ -97,7 +159,7 @@
                     </div>
                 </div>
                 <div>
-                    <img src="/hero.png" alt="Luxury Cars">
+                    <img class="floating" src="/hero.png" alt="Luxury Cars">
                 </div>
             </div>
         </div>
@@ -760,7 +822,7 @@
                             <span class="text-blue-600 text-lg">•</span>
                         </span>
                         <div class="flex-1">
-                            <p class="text-gray-800 text-lg font-medium">First installment starts from 15-01-2025</p>
+                            <p class="text-gray-800 text-lg font-medium cursor-pointer">First installment starts from 15-01-2025</p>
                         </div>
                     </li>
 
@@ -770,7 +832,7 @@
                             <span class="text-blue-600 text-lg">•</span>
                         </span>
                         <div class="flex-1">
-                            <p class="text-gray-800 text-lg font-medium">Each member shall pay monthly installments of Rs.1000 in 14 installments</p>
+                            <p class="text-gray-800 text-lg font-medium cursor-pointer">Each member shall pay monthly installments of Rs.1000 in 14 installments</p>
                         </div>
                     </li>
 
@@ -780,7 +842,7 @@
                             <span class="text-blue-600 text-lg">•</span>
                         </span>
                         <div class="flex-1">
-                            <p class="text-gray-800 text-lg font-medium">Members present at our office on 15th of every month at 7 PM</p>
+                            <p class="text-gray-800 text-lg font-medium cursor-pointer">Members present at our office on 15th of every month at 7 PM</p>
                         </div>
                     </li>
 
@@ -790,7 +852,7 @@
                             <span class="text-blue-600 text-lg">•</span>
                         </span>
                         <div class="flex-1">
-                            <p class="text-gray-800 text-lg font-medium">Draw will be held in presence, results live on WhatsApp and YouTube</p>
+                            <p class="text-gray-800 text-lg font-medium cursor-pointer">Draw will be held in presence, results live on WhatsApp and YouTube</p>
                         </div>
                     </li>
 
@@ -800,7 +862,7 @@
                             <span class="text-blue-600 text-lg">•</span>
                         </span>
                         <div class="flex-1">
-                            <p class="text-gray-800 text-lg font-medium">15 lucky winners who pay monthly installment by 7th eligible for a surprise prize</p>
+                            <p class="text-gray-800 text-lg font-medium cursor-pointer">15 lucky winners who pay monthly installment by 7th eligible for a surprise prize</p>
                         </div>
                     </li>
 
@@ -810,7 +872,7 @@
                             <span class="text-blue-600 text-lg">•</span>
                         </span>
                         <div class="flex-1">
-                            <p class="text-gray-800 text-lg font-medium">Winners do not need to pay the next installment</p>
+                            <p class="text-gray-800 text-lg font-medium cursor-pointer">Winners do not need to pay the next installment</p>
                         </div>
                     </li>
 
@@ -820,7 +882,7 @@
                             <span class="text-blue-600 text-lg">•</span>
                         </span>
                         <div class="flex-1">
-                            <p class="text-gray-800 text-lg font-medium">EMI option available for those not opting for incentive gifts</p>
+                            <p class="text-gray-800 text-lg font-medium cursor-pointer">EMI option available for those not opting for incentive gifts</p>
                         </div>
                     </li>
 
@@ -830,7 +892,7 @@
                             <span class="text-blue-600 text-lg">•</span>
                         </span>
                         <div class="flex-1">
-                            <p class="text-gray-800 text-lg font-medium">Selected prize will be awarded within 60 days of the draw result</p>
+                            <p class="text-gray-800 text-lg font-medium cursor-pointer">Selected prize will be awarded within 60 days of the draw result</p>
                         </div>
                     </li>
 
@@ -840,7 +902,7 @@
                             <span class="text-blue-600 text-lg">•</span>
                         </span>
                         <div class="flex-1">
-                            <p class="text-gray-800 text-lg font-medium">Incentive Prize is not transferable</p>
+                            <p class="text-gray-800 text-lg font-medium cursor-pointer">Incentive Prize is not transferable</p>
                         </div>
                     </li>
 
@@ -850,7 +912,7 @@
                             <span class="text-blue-600 text-lg">•</span>
                         </span>
                         <div class="flex-1">
-                            <p class="text-gray-800 text-lg font-medium">Bumper Prize cannot be substituted for cash</p>
+                            <p class="text-gray-800 text-lg font-medium cursor-pointer">Bumper Prize cannot be substituted for cash</p>
                         </div>
                     </li>
 
@@ -860,7 +922,7 @@
                             <span class="text-blue-600 text-lg">•</span>
                         </span>
                         <div class="flex-1">
-                            <p class="text-gray-800 text-lg font-medium">Non-paying members' tokens excluded from the draw</p>
+                            <p class="text-gray-800 text-lg font-medium cursor-pointer">Non-paying members' tokens excluded from the draw</p>
                         </div>
                     </li>
 
@@ -870,7 +932,7 @@
                             <span class="text-blue-600 text-lg">•</span>
                         </span>
                         <div class="flex-1">
-                            <p class="text-gray-800 text-lg font-medium">Installment amount is not a deposit; transport charges apply outside Kasargod for furniture</p>
+                            <p class="text-gray-800 text-lg font-medium cursor-pointer">Installment amount is not a deposit; transport charges apply outside Kasargod for furniture</p>
                         </div>
                     </li>
 
@@ -880,7 +942,7 @@
                             <span class="text-blue-600 text-lg">•</span>
                         </span>
                         <div class="flex-1">
-                            <p class="text-gray-800 text-lg font-medium">Payments only through authorized UPI/scanners; non-refundable</p>
+                            <p class="text-gray-800 text-lg font-medium cursor-pointer">Payments only through authorized UPI/scanners; non-refundable</p>
                         </div>
                     </li>
                 </ul>
@@ -991,13 +1053,34 @@
                             </a>
                         </div>
                     </div>
+                    <div class="text-center md:text-left">
+                        <button class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-500 hover:bg-blue-600 rounded-lg transition-all duration-300 text-white viewPdfButton">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                            <span>View Company Profile</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- PDF Modal -->
+    <div id="pdfModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+            <iframe id="pdfViewer" class="pdf-viewer" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
     <script>
-        const carousel = document.querySelector('.carousel-container');
+
+const carousel = document.querySelector('.carousel-container');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         const progressBar = document.querySelector('.progress-bar');
@@ -1009,23 +1092,23 @@
         const totalCards = 14;
 
         const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('nav a');
+const navLinks = document.querySelectorAll('nav a');
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 100) {
-                    current = section.getAttribute('id');
-                }
-            });
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
-            });
-        });
+window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 100) {
+            current = section.getAttribute('id');
+        }
+    });
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+            link.classList.add('active');
+        }
+    });
+});
 
         function scrollToCard(position) {
             carousel.scrollTo({
@@ -1118,21 +1201,56 @@
             observer.observe(el);
         });
 
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
 
-        // Close mobile menu when a link is clicked
-        const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
+    // Close mobile menu when a link is clicked
+    const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
         });
+    });
+        // PDF Modal Functionality
+const pdfModal = document.getElementById('pdfModal');
+const pdfViewer = document.getElementById('pdfViewer');
+const viewPdfButtons = document.getElementsByClassName('viewPdfButton'); // Get all buttons with the class
+const closeModalButton = document.getElementById('closeModal');
+
+// Loop through all buttons and add event listeners
+for (let button of viewPdfButtons) {
+    button.addEventListener('click', () => {
+        pdfViewer.src = '/DOC-20241126-WA0197..pdf#toolbar=0'; // Replace with your PDF file path
+        pdfModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+}
+
+// Close Modal
+closeModalButton.addEventListener('click', () => {
+    pdfModal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    pdfViewer.src = ''; // Clear the iframe source
+});
+
+// Close Modal on Escape Key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && pdfModal.classList.contains('active')) {
+        pdfModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        pdfViewer.src = ''; // Clear the iframe source
+    }
+});
+
+// Prevent Modal from Closing When Clicking Inside Content
+document.querySelector('.modal-content').addEventListener('click', (e) => {
+    e.stopPropagation();
+});
     </script>
 </body>
 </html>
