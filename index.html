@@ -1183,127 +1183,127 @@
     </div>
 </div>
 
-    <script>
-        const carousel = document.querySelector('.carousel-container');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const progressBar = document.querySelector('.progress-bar');
-        const currentMonthSpan = document.getElementById('currentMonth');
-        const cardWidth = 256; // w-64 = 256px
-        const gapWidth = 16; // gap-4 = 16px
-        const scrollAmount = cardWidth + gapWidth;
-        let currentPosition = 0;
-        const totalCards = 14;
+<script>
+    const carousel = document.querySelector('.carousel-container');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.querySelector('.progress-bar');
+    const currentMonthSpan = document.getElementById('currentMonth');
+    const cardWidth = 256; // w-64 = 256px
+    const gapWidth = 16; // gap-4 = 16px
+    const scrollAmount = cardWidth + gapWidth;
+    let currentPosition = 0;
+    const totalCards = 14;
 
-        const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
 
-window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 100) {
-            current = section.getAttribute('id');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 100) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    function scrollToCard(position) {
+        carousel.scrollTo({
+            left: position * scrollAmount,
+            behavior: 'smooth'
+        });
+    }
+
+    function updateProgress() {
+        const progress = (currentPosition / (totalCards - 1)) * 100;
+        progressBar.style.width = `${progress}%`;
+        const currentMonth = Math.min(Math.floor(currentPosition) + 1, totalCards);
+        currentMonthSpan.textContent = `Month ${currentMonth}`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+        if (currentPosition < totalCards - 1) {
+            currentPosition++;
+            scrollToCard(currentPosition);
+            updateProgress();
         }
     });
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
-            link.classList.add('active');
+
+    prevBtn.addEventListener('click', () => {
+        if (currentPosition > 0) {
+            currentPosition--;
+            scrollToCard(currentPosition);
+            updateProgress();
         }
     });
-});
 
-        function scrollToCard(position) {
-            carousel.scrollTo({
-                left: position * scrollAmount,
-                behavior: 'smooth'
-            });
+    let isScrolling;
+    carousel.addEventListener('scroll', () => {
+        clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+            currentPosition = Math.round(carousel.scrollLeft / scrollAmount);
+            scrollToCard(currentPosition);
+            updateProgress();
+        }, 150);
+    });
+
+    let startX;
+    carousel.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+
+    carousel.addEventListener('touchend', (e) => {
+        const endX = e.changedTouches[0].clientX;
+        if (startX - endX > 50) {
+            nextBtn.click();
+        } else if (endX - startX > 50) {
+            prevBtn.click();
         }
+    });
 
-        function updateProgress() {
-            const progress = (currentPosition / (totalCards - 1)) * 100;
-            progressBar.style.width = `${progress}%`;
-            const currentMonth = Math.min(Math.floor(currentPosition) + 1, totalCards);
-            currentMonthSpan.textContent = `Month ${currentMonth}`;
-        }
-
-        nextBtn.addEventListener('click', () => {
+    let autoPlayInterval;
+    function startAutoPlay() {
+        autoPlayInterval = setInterval(() => {
             if (currentPosition < totalCards - 1) {
                 currentPosition++;
-                scrollToCard(currentPosition);
-                updateProgress();
+            } else {
+                currentPosition = 0;
+            }
+            scrollToCard(currentPosition);
+            updateProgress();
+        }, 3000);
+    }
+
+    function stopAutoPlay() {
+        clearInterval(autoPlayInterval);
+    }
+
+    carousel.addEventListener('mouseenter', stopAutoPlay);
+    carousel.addEventListener('mouseleave', startAutoPlay);
+    startAutoPlay();
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('opacity-100', 'translate-y-0');
+                entry.target.classList.remove('opacity-0', 'translate-y-10');
             }
         });
+    }, {
+        threshold: 0.1
+    });
 
-        prevBtn.addEventListener('click', () => {
-            if (currentPosition > 0) {
-                currentPosition--;
-                scrollToCard(currentPosition);
-                updateProgress();
-            }
-        });
-
-        let isScrolling;
-        carousel.addEventListener('scroll', () => {
-            clearTimeout(isScrolling);
-            isScrolling = setTimeout(() => {
-                currentPosition = Math.round(carousel.scrollLeft / scrollAmount);
-                scrollToCard(currentPosition);
-                updateProgress();
-            }, 150);
-        });
-
-        let startX;
-        carousel.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-        });
-
-        carousel.addEventListener('touchend', (e) => {
-            const endX = e.changedTouches[0].clientX;
-            if (startX - endX > 50) {
-                nextBtn.click();
-            } else if (endX - startX > 50) {
-                prevBtn.click();
-            }
-        });
-
-        let autoPlayInterval;
-        function startAutoPlay() {
-            autoPlayInterval = setInterval(() => {
-                if (currentPosition < totalCards - 1) {
-                    currentPosition++;
-                } else {
-                    currentPosition = 0;
-                }
-                scrollToCard(currentPosition);
-                updateProgress();
-            }, 3000);
-        }
-
-        function stopAutoPlay() {
-            clearInterval(autoPlayInterval);
-        }
-
-        carousel.addEventListener('mouseenter', stopAutoPlay);
-        carousel.addEventListener('mouseleave', startAutoPlay);
-        startAutoPlay();
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    entry.target.classList.remove('opacity-0', 'translate-y-10');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        document.querySelectorAll('.prize-card').forEach((el) => {
-            el.classList.add('opacity-0', 'translate-y-10', 'transition', 'duration-1000');
-            observer.observe(el);
-        });
+    document.querySelectorAll('.prize-card').forEach((el) => {
+        el.classList.add('opacity-0', 'translate-y-10', 'transition', 'duration-1000');
+        observer.observe(el);
+    });
 
     // Mobile Menu Toggle
     const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -1323,111 +1323,113 @@ window.addEventListener('scroll', () => {
 
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-let currentPdfUrl = '';
+    let currentPdfUrl = '';
+    let isModalOpen = false; // Track modal state
 
-async function openPdfModal(pdfUrl) {
-    currentPdfUrl = pdfUrl;
-    const modal = document.getElementById('pdfModal');
-    const loadingSpinner = document.getElementById('loadingSpinner');
-    const desktopContainer = document.getElementById('desktopContainer');
-    const mobileContainer = document.getElementById('mobileContainer');
-    const fallbackMessage = document.getElementById('fallbackMessage');
-    const pdfViewerDesktop = document.getElementById('pdfViewerDesktop');
+    async function openPdfModal(pdfUrl) {
+        isModalOpen = true; // Set modal state to open
+        currentPdfUrl = pdfUrl;
+        const modal = document.getElementById('pdfModal');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const desktopContainer = document.getElementById('desktopContainer');
+        const mobileContainer = document.getElementById('mobileContainer');
+        const fallbackMessage = document.getElementById('fallbackMessage');
+        const pdfViewerDesktop = document.getElementById('pdfViewerDesktop');
 
-    modal.classList.add('active');
-    loadingSpinner.style.display = 'block';
-    mobileContainer.innerHTML = '';
-    fallbackMessage.style.display = 'none';
-    document.body.style.overflow = 'hidden';
+        modal.classList.add('active');
+        loadingSpinner.style.display = 'block';
+        mobileContainer.innerHTML = '';
+        fallbackMessage.style.display = 'none';
+        document.body.style.overflow = 'hidden';
 
-    // Check if we're on mobile
-    const isMobile = window.innerWidth <= 640;
+        // Check if we're on mobile
+        const isMobile = window.innerWidth <= 640;
 
-    try {
-        if (isMobile) {
-            // Mobile view - render as canvas
-            desktopContainer.style.display = 'none';
-            mobileContainer.style.display = 'block';
-            
-            const loadingTask = pdfjsLib.getDocument(pdfUrl);
-            const pdf = await loadingTask.promise;
-            const numPages = Math.min(pdf.numPages, 5);
-            
-            for (let pageNum = 1; pageNum <= numPages; pageNum++) {
-                const page = await pdf.getPage(pageNum);
-                const viewport = page.getViewport({ scale: 1.5 });
+        try {
+            if (isMobile) {
+                // Mobile view - render as canvas
+                desktopContainer.style.display = 'none';
+                mobileContainer.style.display = 'block';
                 
-                const canvas = document.createElement('canvas');
-                canvas.className = 'pdf-page';
-                const context = canvas.getContext('2d');
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
+                const loadingTask = pdfjsLib.getDocument(pdfUrl);
+                const pdf = await loadingTask.promise;
+                const numPages = Math.min(pdf.numPages, 5);
                 
-                const renderContext = {
-                    canvasContext: context,
-                    viewport: viewport
-                };
-                
-                mobileContainer.appendChild(canvas);
-                await page.render(renderContext).promise;
+                for (let pageNum = 1; pageNum <= numPages; pageNum++) {
+                    const page = await pdf.getPage(pageNum);
+                    const viewport = page.getViewport({ scale: 1.5 });
+                    
+                    const canvas = document.createElement('canvas');
+                    canvas.className = 'pdf-page';
+                    const context = canvas.getContext('2d');
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+                    
+                    const renderContext = {
+                        canvasContext: context,
+                        viewport: viewport
+                    };
+                    
+                    mobileContainer.appendChild(canvas);
+                    await page.render(renderContext).promise;
+                }
+            } else {
+                // Desktop view - use iframe
+                desktopContainer.style.display = 'flex';
+                mobileContainer.style.display = 'none';
+                pdfViewerDesktop.style.display = 'block';
+                pdfViewerDesktop.src = pdfUrl + '#toolbar=0';
             }
-        } else {
-            // Desktop view - use iframe
-            desktopContainer.style.display = 'flex';
-            mobileContainer.style.display = 'none';
-            pdfViewerDesktop.style.display = 'block';
-            pdfViewerDesktop.src = pdfUrl + '#toolbar=0';
-        }
 
-        loadingSpinner.style.display = 'none';
-    } catch (error) {
-        console.error('Error loading PDF:', error);
-        loadingSpinner.style.display = 'none';
-        fallbackMessage.style.display = 'block';
+            loadingSpinner.style.display = 'none';
+        } catch (error) {
+            console.error('Error loading PDF:', error);
+            loadingSpinner.style.display = 'none';
+            fallbackMessage.style.display = 'block';
+        }
     }
-}
 
-// Handle window resize
-let resizeTimeout;
-window.addEventListener('resize', function() {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(function() {
-        if (currentPdfUrl) {
-            openPdfModal(currentPdfUrl);
+    // Handle window resize
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            if (currentPdfUrl && !isModalOpen) { // Only reopen if modal is not already open
+                openPdfModal(currentPdfUrl);
+            }
+        }, 250);
+    });
+
+    function openPdfInNewTab() {
+        window.open(currentPdfUrl, '_blank');
+    }
+
+    function closeModal(event) {
+        if (event) {
+            event.stopPropagation();
         }
-    }, 250);
-});
+        const modal = document.getElementById('pdfModal');
+        const pdfViewerDesktop = document.getElementById('pdfViewerDesktop');
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        
+        // Clear the containers
+        document.getElementById('mobileContainer').innerHTML = '';
+        pdfViewerDesktop.src = '';
+        isModalOpen = false; // Set modal state to closed
+    }
 
-function openPdfInNewTab() {
-    window.open(currentPdfUrl, '_blank');
-}
+    // Close modal on escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeModal();
+        }
+    });
 
-function closeModal(event) {
-    if (event) {
+    // Prevent modal from closing when clicking inside content
+    document.querySelector('.modal-content').addEventListener('click', function(event) {
         event.stopPropagation();
-    }
-    const modal = document.getElementById('pdfModal');
-    const pdfViewerDesktop = document.getElementById('pdfViewerDesktop');
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto';
-    
-    // Clear the containers
-    document.getElementById('mobileContainer').innerHTML = '';
-    pdfViewerDesktop.src = '';
-}
-
-// Close modal on escape key
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        closeModal();
-    }
-});
-
-// Prevent modal from closing when clicking inside content
-document.querySelector('.modal-content').addEventListener('click', function(event) {
-    event.stopPropagation();
-});
-
-    </script>
+    });
+</script>
 </body>
 </html>
